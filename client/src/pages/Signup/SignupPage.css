@@ -1,0 +1,22 @@
+.page-signup {
+  min-height: 100vh;
+}
+
+.signup-hero {
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(236, 253, 245, 0.78)),
+    linear-gradient(135deg, #ecfeff, #f8fafc);
+}
+
+.signup-title {
+  max-width: 30rem;
+}
+
+.signup-copy {
+  max-width: 30rem;
+  margin-top: 1rem;
+}
+
+.signup-home-link {
+  justify-self: flex-start;
+}

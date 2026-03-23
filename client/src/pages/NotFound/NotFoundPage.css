@@ -1,0 +1,15 @@
+.page-not-found {
+  min-height: 100vh;
+}
+
+.not-found-content {
+  min-height: calc(100vh - 8rem);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.not-found-copy {
+  max-width: 32rem;
+}
