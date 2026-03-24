@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useState, useEffect } from "react";
+import { loginUser } from "../../features/auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
+
+  const navigate = useNavigate()
+  const [email, setEmail] = useState("")
+  const [password, setPasswor ] = useState("")
+
+  const dispatch = useDispatch();
+  const { isAuthenticated, loading, error } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard"); 
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(loginUser({email, password}));
+  };
+
   return (
     <div className="page page-login auth-page">
       <main className="page-main">
@@ -32,11 +55,11 @@ function LoginPage() {
                   <h2 className="section-title">Enter your account</h2>
                 </div>
 
-                <form className="auth-form">
+                <form  onSubmit={handleSubmit} className="auth-form">
                   <div className="field-list">
                     <label className="field" htmlFor="login-email">
                       <span className="field-label">Email</span>
-                      <input className="input" id="login-email" type="email" placeholder="you@example.com" />
+                      <input className="input" id="login-email" onChange={(e)=> setEmail(e.target.value)} type="email" placeholder="you@example.com" />
                     </label>
 
                     <label className="field" htmlFor="login-password">
@@ -45,6 +68,7 @@ function LoginPage() {
                         className="input"
                         id="login-password"
                         type="password"
+                        onChange={(e)=>setPasswor(e.target.value)}
                         placeholder="Enter your password"
                       />
                     </label>
@@ -62,8 +86,10 @@ function LoginPage() {
                   </div>
 
                   <button className="button button-primary" type="submit">
-                    Login
+                    {loading ? "Loading...." : "Login"}
                   </button>
+
+                  {error ? <p className="form-error">{error}</p> : null}
                 </form>
 
                 <p className="text-body auth-switch">

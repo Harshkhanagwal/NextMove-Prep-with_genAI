@@ -1,10 +1,14 @@
 import { Navigate } from "react-router-dom";
-import { getAuthToken } from "./auth";
+import { useSelector } from "react-redux";
 
 function PublicRoute({ children }) {
-  const token = getAuthToken();
+  const { isAuthenticated, checkingAuth } = useSelector((state) => state.auth);
 
-  if (token) {
+  if (checkingAuth) {
+    return <div className="route-status">Checking session...</div>;
+  }
+
+  if (isAuthenticated) {
     return <Navigate to="/dashboard" replace />;
   }
 

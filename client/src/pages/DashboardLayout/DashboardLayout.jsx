@@ -1,7 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import "./DashboardLayout.css";
+import { useDispatch } from "react-redux";
+import { logoutUser } from "../../features/auth/authSlice";
 
 function DashboardLayout() {
+  const dispatch = useDispatch();
+
   return (
     <div className="page page-dashboard">
       <div className="dashboard-shell">
@@ -15,6 +19,9 @@ function DashboardLayout() {
             <Link className="dashboard-link" to="/dashboard">
               Overview
             </Link>
+            <button className="dashboard-link dashboard-link-button" type="button" onClick={() => dispatch(logoutUser())}>
+              Logout
+            </button>
           </nav>
         </aside>
 

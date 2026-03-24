@@ -1,7 +1,29 @@
 import { Link } from "react-router-dom";
 import "./SignupPage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { signupUser } from "../../features/auth/authSlice";
 
 function SignupPage() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isAuthenticated, loading, error } = useSelector((state) => state.auth);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(signupUser({ username, email, password }));
+  };
+
   return (
     <div className="page page-signup auth-page">
       <main className="page-main">
@@ -31,16 +53,30 @@ function SignupPage() {
                   <h2 className="section-title">Create your account</h2>
                 </div>
 
-                <form className="auth-form">
+                <form className="auth-form" onSubmit={handleSubmit}>
                   <div className="field-list">
                     <label className="field" htmlFor="signup-name">
                       <span className="field-label">Full Name</span>
-                      <input className="input" id="signup-name" type="text" placeholder="Your full name" />
+                      <input
+                        className="input"
+                        id="signup-name"
+                        type="text"
+                        placeholder="Your full name"
+                        value={username}
+                        onChange={(event) => setUsername(event.target.value)}
+                      />
                     </label>
 
                     <label className="field" htmlFor="signup-email">
                       <span className="field-label">Email</span>
-                      <input className="input" id="signup-email" type="email" placeholder="you@example.com" />
+                      <input
+                        className="input"
+                        id="signup-email"
+                        type="email"
+                        placeholder="you@example.com"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                      />
                     </label>
 
                     <label className="field" htmlFor="signup-password">
@@ -50,6 +86,8 @@ function SignupPage() {
                         id="signup-password"
                         type="password"
                         placeholder="Create a strong password"
+                        value={password}
+                        onChange={(event) => setPassword(event.target.value)}
                       />
                     </label>
                   </div>
@@ -59,8 +97,10 @@ function SignupPage() {
                   </p>
 
                   <button className="button button-primary" type="submit">
-                    Create Account
+                    {loading ? "Creating..." : "Create Account"}
                   </button>
+
+                  {error ? <p className="form-error">{error}</p> : null}
                 </form>
 
                 <p className="text-body auth-switch">

@@ -318,6 +318,22 @@ a {
   max-width: 22rem;
 }
 
+.form-error {
+  margin: 0;
+  color: #b91c1c;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.route-status {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-8);
+  color: var(--color-text-strong);
+  font-weight: 600;
+}
+
 @media (max-width: 640px) {
   .page-main {
     padding-inline: var(--space-4);

@@ -8,13 +8,14 @@ import notFound from "./middleware/notFound.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 const MONGODB_URI = process.env.MONGODB_URI || "";
 const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
 
 app.use(
   cors({
-    origin: CLIENT_URL
+    origin: CLIENT_URL,
+    credentials: true,
   })
 );
 app.use(express.json());
@@ -29,20 +30,19 @@ app.use(notFound);
 app.use(errorHandler);
 
 const startServer = async () => {
-  try {
-    if (MONGODB_URI) {
+  if (MONGODB_URI) {
+    try {
       await connectDB(MONGODB_URI);
-    } else {
-      console.warn("MONGODB_URI is not set. Starting server without MongoDB.");
+    } catch (error) {
+      console.error("MongoDB connection failed. Starting server without database.", error);
     }
-
-    app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
-    });
-  } catch (error) {
-    console.error("Failed to start server", error);
-    process.exit(1);
+  } else {
+    console.warn("MONGODB_URI is not set. Starting server without MongoDB.");
   }
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 };
 
 startServer();
