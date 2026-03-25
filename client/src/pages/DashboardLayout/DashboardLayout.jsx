@@ -1,9 +1,9 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./DashboardLayout.css";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../features/auth/authSlice";
 
-function DashboardLayout() {
+function DashboardLayout({ children }) {
   const dispatch = useDispatch();
 
   return (
@@ -19,6 +19,9 @@ function DashboardLayout() {
             <Link className="dashboard-link" to="/dashboard">
               Overview
             </Link>
+            <Link className="dashboard-link" to="/generate-report">
+              Generate Report
+            </Link>
             <button className="dashboard-link dashboard-link-button" type="button" onClick={() => dispatch(logoutUser())}>
               Logout
             </button>
@@ -26,7 +29,7 @@ function DashboardLayout() {
         </aside>
 
         <main className="dashboard-main">
-          <Outlet />
+          {children}
         </main>
       </div>
     </div>

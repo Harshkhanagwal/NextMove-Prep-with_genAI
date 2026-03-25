@@ -1,0 +1,175 @@
+.report-workspace {
+  padding: 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.report-topbar {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.report-section-title {
+  font-size: 1.3rem;
+}
+
+.report-upload-panel {
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+  border-radius: 1.4rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.84)),
+    linear-gradient(135deg, #f8fafc, #eff6ff);
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.report-file-input {
+  display: none;
+}
+
+.report-upload-icon {
+  width: 3.4rem;
+  height: 3.4rem;
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.report-upload-content {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.report-upload-heading {
+  margin: 0;
+  color: var(--color-text-strong);
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+}
+
+.report-upload-copy {
+  max-width: 30rem;
+}
+
+.report-upload-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.report-file-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.8rem;
+  max-width: 18rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-strong);
+  font-size: 0.94rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.report-form {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.35fr);
+  gap: 1rem 1.25rem;
+  align-items: start;
+}
+
+.report-form .field {
+  height: 100%;
+}
+
+.report-textarea {
+  min-height: 15rem;
+  height: 100%;
+  resize: vertical;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.report-textarea-large {
+  min-height: 15rem;
+}
+
+.report-form-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.report-mini-notes {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.report-note {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.4rem 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-strong);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.report-submit {
+  justify-self: start;
+}
+
+.report-form-error {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+@media (max-width: 980px) {
+  .report-upload-panel {
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .report-upload-actions {
+    justify-content: flex-start;
+  }
+
+  .report-form {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .report-workspace {
+    padding: 1.2rem;
+  }
+
+  .report-textarea,
+  .report-textarea-large {
+    min-height: 11rem;
+  }
+}

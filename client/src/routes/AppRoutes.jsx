@@ -1,7 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import DashboardLayout from "../pages/DashboardLayout/DashboardLayout";
 import DashboardHomePage from "../pages/DashboardHome/DashboardHomePage";
+import GenerateReportPage from "../pages/GenerateReport/GenerateReportPage";
 import HomePage from "../pages/Home/HomePage";
+import InterviewReportPage from "../pages/InterviewReport/InterviewReportPage";
 import LoginPage from "../pages/Login/LoginPage";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
 import SignupPage from "../pages/Signup/SignupPage";
@@ -42,12 +43,37 @@ function AppRoutes() {
         path="/dashboard"
         element={
           <ProtectedRoute>
-            <DashboardLayout />
+            <DashboardHomePage />
           </ProtectedRoute>
         }
-      >
-        <Route index element={<DashboardHomePage />} />
-      </Route>
+      />
+
+      <Route
+        path="/generate-report"
+        element={
+          <ProtectedRoute>
+            <GenerateReportPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/reports/demo"
+        element={
+          <ProtectedRoute>
+            <InterviewReportPage />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/reports/:reportId"
+        element={
+          <ProtectedRoute>
+            <InterviewReportPage />
+          </ProtectedRoute>
+        }
+      />
 
       <Route path="*" element={<NotFoundPage />} />
     </Routes>

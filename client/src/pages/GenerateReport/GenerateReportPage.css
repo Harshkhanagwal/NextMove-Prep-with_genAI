@@ -1,0 +1,14 @@
+.generate-report-page {
+  width: min(84rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 2.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (max-width: 640px) {
+  .generate-report-page {
+    width: min(100%, calc(100% - 1rem));
+    padding-top: 1rem;
+  }
+}

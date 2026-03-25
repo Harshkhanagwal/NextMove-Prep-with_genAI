@@ -1,14 +1,32 @@
+import { useDispatch, useSelector } from "react-redux";
+import { logoutUser } from "../../features/auth/authSlice";
+import DashboardActionPanel from "../../components/DashboardActionPanel/DashboardActionPanel";
+import DashboardFeaturesGrid from "../../components/DashboardFeaturesGrid/DashboardFeaturesGrid";
+import DashboardHomeHero from "../../components/DashboardHomeHero/DashboardHomeHero";
+import PreviousReportsSection from "../../components/PreviousReportsSection/PreviousReportsSection";
 import "./DashboardHomePage.css";
 
 function DashboardHomePage() {
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+
+  const displayName = user?.username || user?.name || "there";
+  const displayEmail = user?.email || "Signed in user";
+
   return (
-    <section className="card dashboard-home">
-      <p className="eyebrow">Overview</p>
-      <h2 className="section-title">Protected dashboard route is working.</h2>
-      <p className="text-body dashboard-home-copy">
-        This page only renders when the backend confirms your cookie-based session is valid.
-        You can now add nested protected pages here the same way as your sample structure.
-      </p>
+    <section className="dashboard-home-page">
+      <DashboardHomeHero
+        displayEmail={displayEmail}
+        displayName={displayName}
+        onLogout={() => dispatch(logoutUser())}
+      />
+
+      <section className="dashboard-home-grid">
+        <DashboardActionPanel />
+        <DashboardFeaturesGrid />
+      </section>
+
+      <PreviousReportsSection />
     </section>
   );
 }

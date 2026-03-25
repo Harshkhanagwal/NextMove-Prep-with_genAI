@@ -2,29 +2,19 @@
   min-height: 100vh;
 }
 
-.home-hero {
-  min-height: calc(100vh - 8rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.home-main {
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
 }
 
-.home-content {
+.home-container {
+  width: min(86rem, 100%);
   display: grid;
   gap: 1rem;
-  max-width: 40rem;
 }
 
-.home-copy {
-  max-width: 34rem;
-  margin-inline: auto;
-}
-
-.home-actions {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 0.5rem;
+@media (max-width: 640px) {
+  .home-main {
+    padding-top: 1rem;
+  }
 }

@@ -1,8 +1,27 @@
-.dashboard-home {
-  padding: 2rem;
+.dashboard-home-page {
+  width: min(84rem, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 2.5rem;
+  display: grid;
+  gap: 1.5rem;
 }
 
-.dashboard-home-copy {
-  margin-top: 1rem;
-  max-width: 36rem;
+.dashboard-home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (max-width: 1150px) {
+  .dashboard-home-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-home-page {
+    width: min(100%, calc(100% - 1rem));
+    padding-top: 1rem;
+  }
 }

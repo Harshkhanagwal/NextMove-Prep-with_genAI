@@ -1,0 +1,43 @@
+.dashboard-home-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  height: 100%;
+  align-items: stretch;
+}
+
+.dashboard-feature-card {
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+  height: 100%;
+  align-content: start;
+}
+
+.dashboard-feature-title {
+  font-size: 1.35rem;
+}
+
+.dashboard-feature-badge {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.85rem;
+  background: #e8eefc;
+  color: #1e3a8a;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1150px) {
+  .dashboard-home-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-feature-card {
+    padding: 1.2rem;
+  }
+}

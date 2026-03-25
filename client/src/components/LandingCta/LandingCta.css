@@ -1,0 +1,38 @@
+.landing-cta {
+  padding: 1.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 252, 0.88)),
+    linear-gradient(135deg, #f8fafc, #eef4ff);
+}
+
+.landing-cta-title {
+  max-width: 20ch;
+  line-height: 1.08;
+}
+
+.landing-cta-text {
+  max-width: 38rem;
+  margin-top: 0.7rem;
+  line-height: 1.7;
+}
+
+.landing-cta-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 760px) {
+  .landing-cta-actions {
+    width: 100%;
+  }
+
+  .landing-cta-actions .button {
+    flex: 1 1 100%;
+  }
+}

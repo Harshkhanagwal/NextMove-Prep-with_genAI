@@ -1,28 +1,20 @@
-import { Link } from "react-router-dom";
+import LandingCta from "../../components/LandingCta/LandingCta";
+import LandingFeatures from "../../components/LandingFeatures/LandingFeatures";
+import LandingHero from "../../components/LandingHero/LandingHero";
+import LandingShowcase from "../../components/LandingShowcase/LandingShowcase";
+import LandingWorkflow from "../../components/LandingWorkflow/LandingWorkflow";
 import "./HomePage.css";
 
 function HomePage() {
   return (
     <div className="page page-home">
-      <main className="page-main">
-        <div className="container">
-          <section className="section home-hero">
-            <div className="home-content">
-              <p className="eyebrow">ResumeFlow</p>
-              <h1 className="display-title">Home Page</h1>
-              <p className="text-body home-copy">
-                This is the starter home page. We can design it properly in the next step.
-              </p>
-              <div className="home-actions">
-                <Link className="button button-primary" to="/login">
-                  Login
-                </Link>
-                <Link className="button button-secondary" to="/signup">
-                  Sign Up
-                </Link>
-              </div>
-            </div>
-          </section>
+      <main className="page-main home-main">
+        <div className="container home-container">
+          <LandingHero />
+          <LandingFeatures />
+          <LandingWorkflow />
+          <LandingShowcase />
+          <LandingCta />
         </div>
       </main>
     </div>

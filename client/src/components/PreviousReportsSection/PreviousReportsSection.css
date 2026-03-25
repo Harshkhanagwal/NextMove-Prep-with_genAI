@@ -1,0 +1,86 @@
+.previous-reports-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.previous-reports-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.previous-reports-title {
+  font-size: 1.35rem;
+}
+
+.previous-reports-copy {
+  max-width: 28rem;
+}
+
+.previous-reports-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.previous-reports-status {
+  padding: 1.2rem;
+  color: var(--color-text-body);
+}
+
+.previous-report-card {
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.previous-report-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.previous-report-role {
+  margin: 0;
+  color: var(--color-text-strong);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.previous-report-company,
+.previous-report-date {
+  margin: 0;
+}
+
+.previous-report-score {
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: #e8eefc;
+  color: #1e3a8a;
+  font-weight: 800;
+}
+
+.previous-report-summary {
+  margin: 0;
+}
+
+.previous-report-actions {
+  padding-top: 0.25rem;
+}
+
+.previous-report-button {
+  width: 100%;
+}
+
+@media (max-width: 1050px) {
+  .previous-reports-grid {
+    grid-template-columns: 1fr;
+  }
+}

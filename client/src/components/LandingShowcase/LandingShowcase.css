@@ -1,0 +1,112 @@
+.landing-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.landing-showcase-report,
+.landing-showcase-history {
+  padding: 1.4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.landing-showcase-title {
+  max-width: 17ch;
+  line-height: 1.08;
+}
+
+.landing-showcase-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.landing-showcase-card {
+  min-height: 16rem;
+  padding: 1.1rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+}
+
+.landing-showcase-score {
+  background: linear-gradient(160deg, #eff6ff, rgba(255, 255, 255, 0.94));
+}
+
+.landing-showcase-kicker {
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.landing-showcase-score strong {
+  color: var(--color-text-strong);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.landing-showcase-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.7rem;
+  color: var(--color-text-body);
+}
+
+.landing-history-title {
+  font-size: 1.7rem;
+}
+
+.landing-history-list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.landing-history-item {
+  padding: 1rem 1.05rem;
+  border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.landing-history-item strong {
+  color: var(--color-text-strong);
+}
+
+.landing-history-item p {
+  margin-top: 0.2rem;
+}
+
+.landing-history-item span {
+  color: var(--color-accent-strong);
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+@media (max-width: 1100px) {
+  .landing-showcase {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .landing-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-showcase-card {
+    min-height: auto;
+  }
+}

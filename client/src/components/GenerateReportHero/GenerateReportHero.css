@@ -1,0 +1,102 @@
+.report-hero {
+  padding: 1.75rem;
+  display: grid;
+  gap: 1rem;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(244, 247, 252, 0.82)),
+    linear-gradient(135deg, #f8fafc, #eef4ff);
+}
+
+.report-hero-copy {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 52rem;
+}
+
+.report-hero-title {
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  line-height: 0.98;
+}
+
+.report-hero-text {
+  max-width: 44rem;
+  font-size: 1rem;
+}
+
+.report-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.report-flow-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 5rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--color-text-strong);
+  flex: 1 1 13rem;
+  min-width: 0;
+}
+
+.report-flow-step strong {
+  color: var(--color-text-strong);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.report-flow-step p {
+  font-size: 0.9rem;
+}
+
+.report-flow-step-accent {
+  background:
+    linear-gradient(180deg, rgba(235, 245, 255, 0.95), rgba(255, 255, 255, 0.86)),
+    linear-gradient(135deg, #eff6ff, #f8fafc);
+}
+
+.report-flow-number {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 0.85rem;
+  display: grid;
+  place-items: center;
+  background: #e8eefc;
+  color: #1e3a8a;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  flex-shrink: 0;
+}
+
+.report-flow-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 1.3rem;
+  font-weight: 700;
+  padding-inline: 0.1rem;
+}
+
+@media (max-width: 980px) {
+  .report-flow-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .report-hero {
+    padding: 1.2rem;
+  }
+
+  .report-hero-title {
+    font-size: clamp(1.9rem, 10vw, 2.8rem);
+  }
+}

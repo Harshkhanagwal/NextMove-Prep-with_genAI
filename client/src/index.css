@@ -289,6 +289,10 @@ a {
     box-shadow var(--transition-base);
 }
 
+textarea.input {
+  padding-block: 1rem;
+}
+
 .input:focus {
   border-color: rgba(29, 78, 216, 0.45);
   box-shadow: 0 0 0 4px rgba(29, 78, 216, 0.12);
@@ -363,3 +367,4 @@ a {
     padding: var(--space-8);
   }
 }
+
