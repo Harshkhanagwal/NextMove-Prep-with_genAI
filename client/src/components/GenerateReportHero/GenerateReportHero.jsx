@@ -4,11 +4,11 @@ function GenerateReportHero() {
   return (
     <header className="card report-hero">
       <div className="report-hero-copy">
-        <p className="eyebrow">Interview Intelligence</p>
-        <h2 className="display-title report-hero-title">Generate your interview report in one focused view.</h2>
+        <p className="eyebrow">NextMove Prep</p>
+        <h2 className="display-title report-hero-title">From Resume to Results, Powered by AI.</h2>
         <p className="text-body report-hero-text">
-          A compact workspace for uploading your resume, adding role context, and preparing a
-          high-signal interview report without bouncing around a dashboard.
+          A compact workspace for uploading your resume, adding role context, and generating a
+          high-signal interview report that helps you prepare with more clarity and confidence.
         </p>
       </div>
 
@@ -65,7 +65,7 @@ function GenerateReportHero() {
           <span className="report-flow-number">04</span>
           <div>
             <strong>Report Generated</strong>
-            <p className="text-muted">Match score, questions, and prep plan.</p>
+            <p className="text-muted">Match score, interview guidance, and next-step plan.</p>
           </div>
         </div>
       </div>

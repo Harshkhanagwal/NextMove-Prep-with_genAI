@@ -1,15 +1,45 @@
-export const getTokenCookieOptions = () => ({
-  httpOnly: true,
-  sameSite: "lax",
-  secure: process.env.NODE_ENV === "production",
-  maxAge: 7 * 24 * 60 * 60 * 1000,
-});
+const getCookieSameSite = () => {
+  const value = (process.env.COOKIE_SAME_SITE || "").toLowerCase();
 
-export const getClearTokenCookieOptions = () => ({
-  httpOnly: true,
-  sameSite: "lax",
-  secure: process.env.NODE_ENV === "production",
-});
+  if (value === "strict" || value === "lax" || value === "none") {
+    return value;
+  }
+
+  return process.env.NODE_ENV === "production" ? "none" : "lax";
+};
+
+const getCookieSecure = (sameSite) => {
+  if (process.env.COOKIE_SECURE === "true") {
+    return true;
+  }
+
+  if (process.env.COOKIE_SECURE === "false") {
+    return false;
+  }
+
+  return process.env.NODE_ENV === "production" || sameSite === "none";
+};
+
+export const getTokenCookieOptions = () => {
+  const sameSite = getCookieSameSite();
+
+  return {
+    httpOnly: true,
+    sameSite,
+    secure: getCookieSecure(sameSite),
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  };
+};
+
+export const getClearTokenCookieOptions = () => {
+  const sameSite = getCookieSameSite();
+
+  return {
+    httpOnly: true,
+    sameSite,
+    secure: getCookieSecure(sameSite),
+  };
+};
 
 export const getTokenFromRequest = (req) => {
   const authHeader = req.headers.authorization || req.headers.Authorization;

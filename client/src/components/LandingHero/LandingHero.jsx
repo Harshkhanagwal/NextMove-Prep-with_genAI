@@ -4,7 +4,7 @@ import "./LandingHero.css";
 const heroStats = [
   { label: "Inputs", value: "Resume + role context" },
   { label: "Output", value: "Questions, score, roadmap" },
-  { label: "Built for", value: "Focused interview prep" },
+  { label: "Built for", value: "Results-focused interview prep" },
 ];
 
 function LandingHero() {
@@ -12,7 +12,7 @@ function LandingHero() {
     <section className="landing-hero">
       <header className="landing-topbar">
         <Link className="landing-brand" to="/">
-          ResumeFlow
+          NextMove Prep
         </Link>
 
         <nav className="landing-nav">
@@ -27,13 +27,14 @@ function LandingHero() {
 
       <div className="landing-hero-grid">
         <div className="landing-hero-copy">
-          <p className="eyebrow">AI Interview Prep</p>
+          <p className="eyebrow">From Resume to Results, Powered by AI</p>
           <h1 className="display-title landing-hero-title">
-            Turn your resume and target role into a sharper interview plan.
+            Turn your resume and target role into your next move.
           </h1>
           <p className="text-body landing-hero-text">
-            Upload your resume, paste the job description, and get a report that shows match score,
-            likely interview questions, skill gaps, and what to study next.
+            NextMove Prep helps you upload your resume, map it against the job description, and
+            generate an AI-powered report with match score, likely interview questions, skill gaps,
+            and a practical path to better results.
           </p>
 
           <div className="landing-hero-actions">
@@ -59,7 +60,7 @@ function LandingHero() {
           <div className="landing-panel-header">
             <div>
               <p className="eyebrow landing-panel-eyebrow">Report Preview</p>
-              <h2 className="section-title landing-panel-title">One place for the whole prep flow</h2>
+              <h2 className="section-title landing-panel-title">One workspace for the whole prep journey</h2>
             </div>
             <span className="landing-panel-badge">Live concept</span>
           </div>
@@ -83,7 +84,7 @@ function LandingHero() {
               <span>03</span>
               <div>
                 <strong>Generate interview report</strong>
-                <p className="text-muted">Get fit score, questions, skill gaps, and prep roadmap.</p>
+                <p className="text-muted">Get fit score, interview signals, skill gaps, and your next best moves.</p>
               </div>
             </div>
           </div>

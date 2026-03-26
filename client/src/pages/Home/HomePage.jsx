@@ -1,5 +1,6 @@
 import LandingCta from "../../components/LandingCta/LandingCta";
 import LandingFeatures from "../../components/LandingFeatures/LandingFeatures";
+import Footer from "../../components/Footer/Footer";
 import LandingHero from "../../components/LandingHero/LandingHero";
 import LandingShowcase from "../../components/LandingShowcase/LandingShowcase";
 import LandingWorkflow from "../../components/LandingWorkflow/LandingWorkflow";
@@ -15,6 +16,7 @@ function HomePage() {
           <LandingWorkflow />
           <LandingShowcase />
           <LandingCta />
+          <Footer />
         </div>
       </main>
     </div>

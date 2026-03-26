@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "./DashboardLayout.css";
 import { useDispatch } from "react-redux";
+import Footer from "../../components/Footer/Footer";
 import { logoutUser } from "../../features/auth/authSlice";
 
 function DashboardLayout({ children }) {
@@ -11,8 +12,8 @@ function DashboardLayout({ children }) {
       <div className="dashboard-shell">
         <aside className="card dashboard-sidebar">
           <div className="dashboard-brand">
-            <p className="eyebrow">Protected Area</p>
-            <h1 className="section-title">Dashboard</h1>
+            <p className="eyebrow">NextMove Prep</p>
+            <h1 className="section-title">From Resume to Results, Powered by AI</h1>
           </div>
 
           <nav className="dashboard-nav" aria-label="Dashboard navigation">
@@ -28,9 +29,10 @@ function DashboardLayout({ children }) {
           </nav>
         </aside>
 
-        <main className="dashboard-main">
-          {children}
-        </main>
+        <div className="dashboard-main">
+          <main>{children}</main>
+          <Footer />
+        </div>
       </div>
     </div>
   );

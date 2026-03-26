@@ -5,14 +5,14 @@ function LandingShowcase() {
     <section className="landing-showcase">
       <div className="card landing-showcase-report">
         <p className="eyebrow">Inside The Report</p>
-        <h2 className="section-title landing-showcase-title">See the outcome before you sign up.</h2>
+        <h2 className="section-title landing-showcase-title">See how NextMove Prep turns inputs into results.</h2>
 
         <div className="landing-showcase-grid">
           <article className="landing-showcase-card landing-showcase-score">
             <span className="landing-showcase-kicker">Match score</span>
             <strong>92%</strong>
             <p className="text-muted">
-              A directional fit signal that helps you understand how closely your profile aligns.
+              A directional fit signal that helps you understand how closely your profile aligns with the role.
             </p>
           </article>
 
@@ -38,7 +38,7 @@ function LandingShowcase() {
 
       <div className="card landing-showcase-history">
         <p className="eyebrow">Saved Reports</p>
-        <h3 className="section-title landing-history-title">Keep previous reports for comparison.</h3>
+        <h3 className="section-title landing-history-title">Keep previous NextMove Prep reports for comparison.</h3>
 
         <div className="landing-history-list">
           <article className="landing-history-item">

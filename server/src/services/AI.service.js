@@ -2,7 +2,7 @@ import "dotenv/config";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import interviewReportSchema from "../models/interviewReportSchema.js";
 
-const key = process.env.GENAI_KEY;
+const key = process.env.GEMINI_API_KEY || process.env.GENAI_KEY;
 const genAI = new GoogleGenerativeAI(key);
 
 const extractJsonText = (text) => {

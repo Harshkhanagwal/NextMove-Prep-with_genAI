@@ -17,7 +17,7 @@ function GenerateReportFormSection({
     <section className="card report-workspace">
       <div className="report-topbar">
         <div>
-          <h3 className="section-title report-section-title">Generate Report</h3>
+          <h3 className="section-title report-section-title">Generate Your NextMove Prep Report</h3>
         </div>
       </div>
 

@@ -5,6 +5,7 @@ import HomePage from "../pages/Home/HomePage";
 import InterviewReportPage from "../pages/InterviewReport/InterviewReportPage";
 import LoginPage from "../pages/Login/LoginPage";
 import NotFoundPage from "../pages/NotFound/NotFoundPage";
+import ProjectNotesPage from "../pages/ProjectNotes/ProjectNotesPage";
 import SignupPage from "../pages/Signup/SignupPage";
 import ProtectedRoute from "./ProtectedRoute";
 import PublicRoute from "./PublicRoute";
@@ -38,6 +39,8 @@ function AppRoutes() {
           </PublicRoute>
         }
       />
+
+      <Route path="/project-notes" element={<ProjectNotesPage />} />
 
       <Route
         path="/dashboard"

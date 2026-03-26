@@ -16,7 +16,7 @@ const steps = [
     id: "03",
     title: "Generate a report",
     description:
-      "The app creates a match score, likely questions, skill gaps, and a preparation roadmap in one view.",
+      "NextMove Prep creates a match score, likely questions, skill gaps, and a preparation roadmap in one focused view.",
   },
 ];
 
@@ -26,7 +26,7 @@ function LandingWorkflow() {
       <div className="landing-workflow-header">
         <div>
           <p className="eyebrow">Workflow</p>
-          <h2 className="section-title landing-workflow-title">A simple flow from upload to interview prep.</h2>
+          <h2 className="section-title landing-workflow-title">A simple flow from resume upload to stronger interview outcomes.</h2>
         </div>
         <p className="text-muted landing-workflow-copy">
           The experience is intentionally short so you can get insight fast and spend your time

@@ -6,10 +6,10 @@ function LandingCta() {
     <section className="card landing-cta">
       <div>
         <p className="eyebrow">Start Here</p>
-        <h2 className="section-title landing-cta-title">Build your first report and see what to prepare next.</h2>
+        <h2 className="section-title landing-cta-title">Start with NextMove Prep and turn your resume into a smarter next step.</h2>
         <p className="text-body landing-cta-text">
-          Create an account, upload your resume, and let the app turn role requirements into a
-          practical interview prep plan.
+          Create an account, upload your resume, and let NextMove Prep convert role requirements
+          into a practical AI-powered interview plan.
         </p>
       </div>
 

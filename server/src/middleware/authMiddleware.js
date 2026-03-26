@@ -5,6 +5,7 @@ import { getTokenFromRequest } from "../utils/auth.js";
 
 const protect = async (req, res, next) => {
   try {
+    const jwtSecret = process.env.JWT_SECRET || process.env.jwtSecret;
     const token = getTokenFromRequest(req);
 
     if (!token) {
@@ -21,7 +22,7 @@ const protect = async (req, res, next) => {
       });
     }
 
-    const decoded = jwt.verify(token, process.env.jwtSecret);
+    const decoded = jwt.verify(token, jwtSecret);
     const user = await User.findById(decoded.id).select("-password");
 
     if (!user) {

@@ -15,9 +15,9 @@ const features = [
   },
   {
     id: "03",
-    title: "Prep roadmap",
+    title: "Results roadmap",
     description:
-      "Build a simple action plan that highlights skill gaps and what to focus on next.",
+      "Build a practical action plan that highlights skill gaps and the next moves to focus on.",
   },
 ];
 

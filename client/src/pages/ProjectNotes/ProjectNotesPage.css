@@ -1,0 +1,249 @@
+.project-notes-page {
+  width: min(1100px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 3rem 0 4rem;
+}
+
+.project-notes-hero {
+  padding: 2rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(240, 249, 255, 0.88)),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.18), transparent 30%);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+}
+
+.project-notes-kicker,
+.project-notes-section-label {
+  margin: 0 0 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #0369a1;
+}
+
+.project-notes-hero h1,
+.project-notes-card h2,
+.project-notes-flow-block h3 {
+  margin: 0;
+  color: #0f172a;
+}
+
+.project-notes-hero h1 {
+  font-size: clamp(2.1rem, 4vw, 3.8rem);
+  line-height: 1;
+  max-width: 12ch;
+}
+
+.project-notes-lead {
+  max-width: 64ch;
+  margin: 1rem 0 0;
+  font-size: 1.05rem;
+  color: #475569;
+}
+
+.project-notes-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.5rem;
+}
+
+.project-notes-links a {
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 132, 199, 0.18);
+  background: rgba(255, 255, 255, 0.78);
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.project-notes-grid,
+.project-notes-stack {
+  margin-top: 1.5rem;
+}
+
+.project-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.project-notes-card {
+  padding: 1.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+}
+
+.project-notes-card p {
+  color: #475569;
+}
+
+.project-notes-flow {
+  display: grid;
+  gap: 1rem;
+}
+
+.project-notes-mini-blocks {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.project-notes-mini-block {
+  padding: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(248, 250, 252, 0.85);
+}
+
+.project-notes-mini-block strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #0f172a;
+  text-transform: capitalize;
+}
+
+.project-notes-mini-block p {
+  margin: 0;
+}
+
+.project-notes-flow-block {
+  padding: 1rem 1.1rem;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.9), rgba(241, 245, 249, 0.72));
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.project-notes-flow-block h3 {
+  margin-bottom: 0.85rem;
+  font-size: 1.05rem;
+}
+
+.project-notes-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: #475569;
+}
+
+.project-notes-list li + li {
+  margin-top: 0.55rem;
+}
+
+.project-notes-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin: 1rem 0 1.1rem;
+}
+
+.project-notes-chip {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0c4a6e;
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.project-notes-route-table {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.project-notes-route-row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.6rem 1rem;
+  align-items: start;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.project-notes-route-row code {
+  overflow-wrap: anywhere;
+  color: #0f172a;
+  font-family: "SFMono-Regular", "Consolas", monospace;
+  font-size: 0.92rem;
+}
+
+.project-notes-route-row p {
+  grid-column: 2;
+  margin: 0;
+  color: #475569;
+}
+
+.project-notes-method {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.5rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: #082f49;
+  color: #f0f9ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.project-notes-files {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.project-notes-file-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(248, 250, 252, 0.9);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+.project-notes-file-row strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: #0f172a;
+}
+
+.project-notes-file-row p,
+.project-notes-file-row span {
+  margin: 0;
+  color: #475569;
+}
+
+.project-notes-file-row p {
+  font-family: "SFMono-Regular", "Consolas", monospace;
+  font-size: 0.92rem;
+}
+
+@media (max-width: 780px) {
+  .project-notes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-notes-route-row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-notes-route-row p {
+    grid-column: auto;
+  }
+
+  .project-notes-file-row {
+    flex-direction: column;
+  }
+
+  .project-notes-page {
+    width: min(1100px, calc(100% - 1rem));
+    padding-top: 1rem;
+  }
+}

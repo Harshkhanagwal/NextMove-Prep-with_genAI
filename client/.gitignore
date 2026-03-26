@@ -3,5 +3,9 @@ dist/
 .DS_Store
 *.log
 .env
+.env.development
+.env.production
 .env.local
 .env.*.local
+coverage/
+.vite/

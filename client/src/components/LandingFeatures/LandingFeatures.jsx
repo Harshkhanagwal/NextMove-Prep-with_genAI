@@ -27,11 +27,11 @@ function LandingFeatures() {
       <div className="landing-section-heading">
         <div>
           <p className="eyebrow">What You Get</p>
-          <h2 className="section-title landing-section-title">Built for preparation, not just analysis.</h2>
+          <h2 className="section-title landing-section-title">Built to move you from resume review to interview results.</h2>
         </div>
         <p className="text-muted landing-section-copy">
-          The product is designed to help you move from resume upload to actual interview practice
-          without guessing what matters most.
+          NextMove Prep is designed to turn resume analysis into practical next steps, so you know
+          exactly what to improve, what to practice, and where to focus first.
         </p>
       </div>
 
