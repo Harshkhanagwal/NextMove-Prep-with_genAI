@@ -1,4 +1,5 @@
-import app, { initApp } from "./app.js";
+const app = require("./app.js");
+const { initApp } = require("./app.js");
 const PORT = process.env.PORT || 5001;
 
 const startServer = async () => {

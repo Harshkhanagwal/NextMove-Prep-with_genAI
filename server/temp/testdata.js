@@ -1,4 +1,4 @@
-export const tempResume = `
+const tempResume = `
 Harsh Kumar
 
 📍 Bhopal, India
@@ -58,11 +58,11 @@ Time Management
 Communication
 `
 
-export const tempSelfDescription = `
+const tempSelfDescription = `
 Motivated MERN Stack Developer with 1 year of hands-on experience in building full-stack web applications using MongoDB, Express.js, React.js, and Node.js. Skilled in developing RESTful APIs, implementing authentication, and optimizing application performance. Passionate about writing clean, scalable code and continuously learning new technologies.
 `
 
-export const tempJobDescription = `
+const tempJobDescription = `
 Job Title: MERN Stack Developer (1+ Year Experience)
 
 📍 Location: Remote / Bhopal, India
@@ -102,5 +102,10 @@ Opportunity to work on real-world projects
 Learning and growth environment
 Flexible work culture
 Competitive salary
+`;
 
-`
+module.exports = {
+  tempResume,
+  tempSelfDescription,
+  tempJobDescription,
+};

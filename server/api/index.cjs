@@ -2,9 +2,9 @@ let cachedHandler;
 
 module.exports = async (req, res) => {
   if (!cachedHandler) {
-    const appModule = await import("../src/app.js");
-    await appModule.initApp();
-    cachedHandler = appModule.default;
+    const app = require("../src/app.js");
+    await app.initApp();
+    cachedHandler = app;
   }
 
   return cachedHandler(req, res);

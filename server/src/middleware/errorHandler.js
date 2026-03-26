@@ -6,4 +6,4 @@ const errorHandler = (err, _req, res, _next) => {
   });
 };
 
-export default errorHandler;
+module.exports = errorHandler;

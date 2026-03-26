@@ -164,4 +164,4 @@ const demoInterviewReportResponse = {
   },
 };
 
-export default demoInterviewReportResponse;
+module.exports = demoInterviewReportResponse;

@@ -1,11 +1,11 @@
-import "dotenv/config";
-import cors from "cors";
-import express from "express";
-import morgan from "morgan";
-import connectDB from "./config/db.js";
-import errorHandler from "./middleware/errorHandler.js";
-import notFound from "./middleware/notFound.js";
-import apiRouter from "./routes/index.js";
+require("dotenv").config();
+const cors = require("cors");
+const express = require("express");
+const morgan = require("morgan");
+const connectDB = require("./config/db.js");
+const errorHandler = require("./middleware/errorHandler.js");
+const notFound = require("./middleware/notFound.js");
+const apiRouter = require("./routes/index.js");
 
 const app = express();
 const MONGODB_URI = process.env.MONGODB_URI || "";
@@ -43,7 +43,7 @@ app.use(errorHandler);
 
 let dbInitPromise;
 
-export const initApp = async () => {
+const initApp = async () => {
   if (dbInitPromise) {
     return dbInitPromise;
   }
@@ -64,4 +64,5 @@ export const initApp = async () => {
   return dbInitPromise;
 };
 
-export default app;
+module.exports = app;
+module.exports.initApp = initApp;

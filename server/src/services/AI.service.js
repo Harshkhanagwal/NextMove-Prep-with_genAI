@@ -1,6 +1,6 @@
-import "dotenv/config";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-import interviewReportSchema from "../models/interviewReportSchema.js";
+require("dotenv").config();
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const interviewReportSchema = require("../models/interviewReportSchema.js");
 
 const extractJsonText = (text) => {
   const trimmedText = text.trim();
@@ -86,4 +86,4 @@ STRICT RULES (MUST FOLLOW):
   }
 }
 
-export default generateInterviewReport;
+module.exports = generateInterviewReport;

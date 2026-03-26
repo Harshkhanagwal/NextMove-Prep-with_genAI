@@ -1,7 +1,7 @@
-import jwt from "jsonwebtoken";
-import BlacklistedToken from "../models/BlacklistedToken.js";
-import User from "../models/User.js";
-import { getTokenFromRequest } from "../utils/auth.js";
+const jwt = require("jsonwebtoken");
+const BlacklistedToken = require("../models/BlacklistedToken.js");
+const User = require("../models/User.js");
+const { getTokenFromRequest } = require("../utils/auth.js");
 
 const protect = async (req, res, next) => {
   try {
@@ -41,4 +41,4 @@ const protect = async (req, res, next) => {
   }
 };
 
-export default protect;
+module.exports = protect;

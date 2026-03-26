@@ -1,13 +1,13 @@
-import User from "../models/User.js";
-import BlacklistedToken from "../models/BlacklistedToken.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import { generateToken } from "../utils/generateToken.js";
-import {
-    getClearTokenCookieOptions,
-    getTokenCookieOptions,
-    getTokenFromRequest,
-} from "../utils/auth.js";
+const User = require("../models/User.js");
+const BlacklistedToken = require("../models/BlacklistedToken.js");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const { generateToken } = require("../utils/generateToken.js");
+const {
+  getClearTokenCookieOptions,
+  getTokenCookieOptions,
+  getTokenFromRequest,
+} = require("../utils/auth.js");
 
 const sanitizeUser = (userDocument) => {
     const userRes = userDocument.toObject();
@@ -145,4 +145,4 @@ const logout = async (req, res) => {
     }
 }
 
-export { createUser, login, getCurrentUser, logout };
+module.exports = { createUser, login, getCurrentUser, logout };

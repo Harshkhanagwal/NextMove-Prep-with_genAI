@@ -1,12 +1,12 @@
-import generateInterviewReport from "../services/AI.service.js";
-import {
+const generateInterviewReport = require("../services/AI.service.js");
+const {
   tempJobDescription,
   tempResume,
   tempSelfDescription,
-} from "../../temp/testdata.js";
-import demoInterviewReportResponse from "../../temp/demoInterviewReport.js";
-import InterviewReport from "../models/interviewReport.js";
-import { PDFParse } from "pdf-parse";
+} = require("../../temp/testdata.js");
+const demoInterviewReportResponse = require("../../temp/demoInterviewReport.js");
+const InterviewReport = require("../models/interviewReport.js");
+const { PDFParse } = require("pdf-parse");
 
 const createInterviewReport = async (req, res) => {
   try {
@@ -158,11 +158,11 @@ const getDemoInterviewReport = async (_req, res) => {
 const getDemoInterviewReportJson = async (_req, res) => {
   return res.status(200).json({
     success: true,
-    interviewReport: demoInterviewReportResponse,
+    interviewReport: demoInterviewReportResponse.interviewReport,
   });
 };
 
-export {
+module.exports = {
   createInterviewReport,
   deleteInterviewReport,
   getDemoInterviewReport,

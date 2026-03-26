@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 let isConnected = false;
 
@@ -15,4 +15,4 @@ const connectDB = async (mongoUri) => {
   console.log("MongoDB connected");
 };
 
-export default connectDB;
+module.exports = connectDB;

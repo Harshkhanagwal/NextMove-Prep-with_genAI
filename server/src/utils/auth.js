@@ -20,7 +20,7 @@ const getCookieSecure = (sameSite) => {
   return process.env.NODE_ENV === "production" || sameSite === "none";
 };
 
-export const getTokenCookieOptions = () => {
+const getTokenCookieOptions = () => {
   const sameSite = getCookieSameSite();
 
   return {
@@ -31,7 +31,7 @@ export const getTokenCookieOptions = () => {
   };
 };
 
-export const getClearTokenCookieOptions = () => {
+const getClearTokenCookieOptions = () => {
   const sameSite = getCookieSameSite();
 
   return {
@@ -41,7 +41,7 @@ export const getClearTokenCookieOptions = () => {
   };
 };
 
-export const getTokenFromRequest = (req) => {
+const getTokenFromRequest = (req) => {
   const authHeader = req.headers.authorization || req.headers.Authorization;
 
   if (authHeader && authHeader.startsWith("Bearer ")) {
@@ -59,4 +59,10 @@ export const getTokenFromRequest = (req) => {
   }
 
   return req.body?.token || null;
+};
+
+module.exports = {
+  getTokenCookieOptions,
+  getClearTokenCookieOptions,
+  getTokenFromRequest,
 };

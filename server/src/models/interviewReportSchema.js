@@ -1,4 +1,4 @@
-import { z } from "zod";
+const { z } = require("zod");
 
 const interviewReportSchema = z.object({
   matchScore: z.number().describe(
@@ -107,4 +107,4 @@ Return ONLY a valid string array. Do NOT return [Array].
 
 
 
-export default interviewReportSchema
+module.exports = interviewReportSchema;
