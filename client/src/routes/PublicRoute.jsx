@@ -1,11 +1,12 @@
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Loader from "../components/Loader/Loader";
 
 function PublicRoute({ children }) {
   const { isAuthenticated, checkingAuth } = useSelector((state) => state.auth);
 
   if (checkingAuth) {
-    return <div className="route-status">Checking session...</div>;
+    return <Loader />;
   }
 
   if (isAuthenticated) {
