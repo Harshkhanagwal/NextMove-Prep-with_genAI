@@ -156,7 +156,10 @@ const getDemoInterviewReport = async (_req, res) => {
 };
 
 const getDemoInterviewReportJson = async (_req, res) => {
-  return res.status(200).json(demoInterviewReportResponse);
+  return res.status(200).json({
+    success: true,
+    interviewReport: demoInterviewReportResponse,
+  });
 };
 
 export {
