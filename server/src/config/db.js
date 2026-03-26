@@ -8,7 +8,9 @@ const connectDB = async (mongoUri) => {
     return mongoose.connection;
   }
 
-  await mongoose.connect(mongoUri);
+  await mongoose.connect(mongoUri, {
+    serverSelectionTimeoutMS: 5000,
+  });
   isConnected = true;
   console.log("MongoDB connected");
 };

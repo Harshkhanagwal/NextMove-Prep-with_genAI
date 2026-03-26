@@ -2,9 +2,6 @@ import "dotenv/config";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import interviewReportSchema from "../models/interviewReportSchema.js";
 
-const key = process.env.GEMINI_API_KEY || process.env.GENAI_KEY;
-const genAI = new GoogleGenerativeAI(key);
-
 const extractJsonText = (text) => {
   const trimmedText = text.trim();
 
@@ -17,7 +14,18 @@ const extractJsonText = (text) => {
   return trimmedText;
 };
 
+const getGenAIClient = () => {
+  const key = process.env.GEMINI_API_KEY || process.env.GENAI_KEY;
+
+  if (!key) {
+    throw new Error("Missing Gemini API key. Set GEMINI_API_KEY or GENAI_KEY.");
+  }
+
+  return new GoogleGenerativeAI(key);
+};
+
 async function generateInterviewReport({ resume, selfDescription, jobDescription }) {
+  const genAI = getGenAIClient();
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `generate an interview report for a candidate with the following details : 
