@@ -6,7 +6,26 @@ const {
 } = require("../../temp/testdata.js");
 const demoInterviewReportResponse = require("../../temp/demoInterviewReport.js");
 const InterviewReport = require("../models/interviewReport.js");
-const { PDFParse } = require("pdf-parse");
+
+const extractResumeTextFromPdf = async (fileBuffer) => {
+  let parser;
+
+  try {
+    const { PDFParse } = require("pdf-parse");
+    parser = new PDFParse({ data: fileBuffer });
+    const pdfData = await parser.getText();
+
+    return pdfData.text || "";
+  } catch (error) {
+    throw new Error(
+      "PDF parsing is unavailable in the current deployment environment. Please try again after enabling a Node-compatible PDF parser."
+    );
+  } finally {
+    if (parser?.destroy) {
+      await parser.destroy().catch(() => {});
+    }
+  }
+};
 
 const createInterviewReport = async (req, res) => {
   try {
@@ -24,10 +43,7 @@ const createInterviewReport = async (req, res) => {
       });
     }
 
-    const parser = new PDFParse({ data: req.file.buffer });
-    const pdfData = await parser.getText();
-    await parser.destroy();
-    const resumeContent = pdfData.text;
+    const resumeContent = await extractResumeTextFromPdf(req.file.buffer);
 
     if (!resumeContent.trim()) {
       return res.status(400).json({
@@ -64,7 +80,9 @@ const createInterviewReport = async (req, res) => {
   } catch (error) {
     console.error("error " + error); 
 
-    return res.status(500).json({
+    const statusCode = error.message?.includes("PDF parsing is unavailable") ? 503 : 500;
+
+    return res.status(statusCode).json({
       message: error.message || "Failed to generate interview report",
     });
   }
