@@ -17,6 +17,57 @@
   margin-top: 1rem;
 }
 
+.demo-login-box {
+  width: min(100%, 30rem);
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.demo-credential {
+  width: 100%;
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid rgba(29, 78, 216, 0.18);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-strong);
+  text-align: left;
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.demo-credential:hover {
+  transform: translateY(-1px);
+  border-color: rgba(29, 78, 216, 0.38);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.demo-credential span {
+  color: var(--color-text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.demo-credential strong {
+  overflow-wrap: anywhere;
+  font-size: 1rem;
+}
+
+.demo-fill-button {
+  width: 100%;
+}
+
 .login-home-link {
   justify-self: flex-start;
+}
+
+@media (max-width: 640px) {
+  .demo-login-box {
+    margin-top: 1.25rem;
+  }
 }
