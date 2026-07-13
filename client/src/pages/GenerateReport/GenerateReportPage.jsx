@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GenerateReportFormSection from "../../components/GenerateReportFormSection/GenerateReportFormSection";
 import GenerateReportHero from "../../components/GenerateReportHero/GenerateReportHero";
 import {
@@ -59,6 +59,11 @@ function GenerateReportPage() {
   return (
     <section className="generate-report-page">
       {generating ? <Loader /> : null}
+      <div className="generate-report-nav">
+        <Link className="button button-secondary generate-report-back" to="/dashboard">
+          Back to Dashboard
+        </Link>
+      </div>
       <GenerateReportHero />
       <GenerateReportFormSection
         fileInputRef={fileInputRef}

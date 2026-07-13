@@ -5,8 +5,21 @@ import { fetchInterviewReports } from "../../features/interviewReports/interview
 import Loader from "../Loader/Loader";
 import "./PreviousReportsSection.css";
 
-const getReportTitle = (report) =>
-  report?.jobDescription?.split("\n")[0]?.trim() || "Interview report";
+const getReportTitle = (report) => {
+  const firstLine = report?.jobDescription?.split("\n")[0]?.trim();
+
+  if (!firstLine) {
+    return "Interview report";
+  }
+
+  const jobTitleMatch = firstLine.match(/^job title:\s*(.+)$/i);
+
+  if (jobTitleMatch?.[1]) {
+    return jobTitleMatch[1].trim();
+  }
+
+  return firstLine;
+};
 
 const getReportSummary = (report) => {
   if (report?.skillGaps?.length) {
@@ -55,15 +68,15 @@ function PreviousReportsSection() {
         <div className="previous-reports-grid">
           {reports.map((report) => (
             <article className="card previous-report-card" key={report._id}>
-            <div className="previous-report-top">
-              <div>
-                <p className="previous-report-role">{getReportTitle(report)}</p>
-                <p className="text-muted previous-report-company">Saved interview report</p>
+              <div className="previous-report-top">
+                <div className="previous-report-main">
+                  <p className="previous-report-role">{getReportTitle(report)}</p>
+                  <p className="text-muted previous-report-company">Saved interview report</p>
+                </div>
+                <div className="previous-report-score">
+                  <span>{report.matchScore ?? "--"}%</span>
+                </div>
               </div>
-              <div className="previous-report-score">
-                <span>{report.matchScore ?? "--"}%</span>
-              </div>
-            </div>
 
               <p className="text-muted previous-report-date">Ready to review</p>
               <p className="text-body previous-report-summary">{getReportSummary(report)}</p>

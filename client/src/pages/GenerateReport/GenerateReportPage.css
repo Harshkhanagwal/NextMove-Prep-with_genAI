@@ -6,9 +6,23 @@
   gap: 1.25rem;
 }
 
+.generate-report-nav {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.generate-report-back {
+  min-height: 2.5rem;
+  padding: 0.7rem 1rem;
+}
+
 @media (max-width: 640px) {
   .generate-report-page {
     width: min(100%, calc(100% - 1rem));
     padding-top: 1rem;
+  }
+
+  .generate-report-back {
+    width: 100%;
   }
 }
