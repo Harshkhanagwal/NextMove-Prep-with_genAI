@@ -42,6 +42,8 @@ Update `server/.env`:
 PORT=5001
 MONGODB_URI=mongodb://127.0.0.1:27017/resume-tool
 CLIENT_URLS=http://localhost:5173,https://next-move-prep-with-gen-ai.vercel.app
+# Optional for preview deploys:
+# CLIENT_URL_PATTERNS=https://next-move-prep-with-gen-ai-*.vercel.app
 JWT_SECRET=replace-with-a-long-random-secret
 GEMINI_API_KEY=replace-with-your-gemini-api-key
 COOKIE_SAME_SITE=lax
@@ -74,15 +76,15 @@ Open `http://localhost:5173`.
 
 Base URL locally: `http://localhost:5001/api`
 
-- `GET /health` checks API health
-- `POST /user/create-user` creates an account
-- `POST /user/login` logs in and sets the auth cookie
-- `POST /user/logout` logs out and clears/blacklists the token
-- `GET /user/me` returns the current authenticated user
-- `GET /interview-report` lists saved reports
-- `GET /interview-report/:id` returns one saved report
-- `POST /interview-report/generate` uploads a resume PDF and generates a report
-- `DELETE /interview-report/:id` deletes a saved report
+- `GET /api/health` checks API health
+- `POST /api/user/create-user` creates an account
+- `POST /api/user/login` logs in and sets the auth cookie
+- `POST /api/user/logout` logs out and clears/blacklists the token
+- `GET /api/user/me` returns the current authenticated user
+- `GET /api/interview-report` lists saved reports
+- `GET /api/interview-report/:id` returns one saved report
+- `POST /api/interview-report/generate` uploads a resume PDF and generates a report
+- `DELETE /api/interview-report/:id` deletes a saved report
 
 ## Vercel Deployment
 
@@ -98,6 +100,10 @@ Deploy `client` and `server` as separate Vercel projects.
 ```env
 VITE_API_URL=https://your-backend-domain.vercel.app/api
 ```
+
+The client also normalizes `VITE_API_URL=https://your-backend-domain.vercel.app`
+to use `/api`, but keeping `/api` in the environment variable makes the deployed
+URL clear when debugging network requests.
 
 Your current frontend URL is:
 
@@ -115,6 +121,8 @@ https://next-move-prep-with-gen-ai.vercel.app
 ```env
 MONGODB_URI=your-mongodb-atlas-uri
 CLIENT_URLS=https://next-move-prep-with-gen-ai.vercel.app
+# Optional for preview deploys:
+# CLIENT_URL_PATTERNS=https://next-move-prep-with-gen-ai-*.vercel.app
 JWT_SECRET=use-a-long-random-secret
 GEMINI_API_KEY=your-gemini-api-key
 COOKIE_SAME_SITE=none
@@ -131,11 +139,13 @@ The backend allows requests from:
 - `http://127.0.0.1:5173`
 - `https://next-move-prep-with-gen-ai.vercel.app`
 - any extra comma-separated origins added in `CLIENT_URLS` or `CLIENT_URL`
+- any comma-separated wildcard patterns added in `CLIENT_URL_PATTERNS`
 
 If the browser still shows a CORS error after deployment, check that:
 
 - `VITE_API_URL` in the frontend points to the deployed backend and ends with `/api`
 - `CLIENT_URLS` in the backend includes the exact deployed frontend origin
+- preview deployment origins match a pattern in `CLIENT_URL_PATTERNS`, if you use previews
 - there is no trailing path in `CLIENT_URLS`; use only the origin, for example `https://example.vercel.app`
 - after changing Vercel environment variables, both projects were redeployed
 

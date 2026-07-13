@@ -10,8 +10,12 @@ module.exports = async (req, res) => {
     if (!mongoUri) {
       console.warn("MONGODB_URI is not set. Starting serverless function without MongoDB.");
     } else {
-      await connectDB(mongoUri);
-      isDbConnected = true;
+      try {
+        await connectDB(mongoUri);
+        isDbConnected = true;
+      } catch (error) {
+        console.error("MongoDB connection failed. Continuing so Express can return CORS-aware errors.", error);
+      }
     }
   }
 

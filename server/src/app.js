@@ -35,10 +35,31 @@ const allowedOrigins = new Set([
   ...configuredAllowedOrigins,
 ]);
 
+const wildcardOriginPatterns = (process.env.CLIENT_URL_PATTERNS || "")
+  .split(",")
+  .map((pattern) => pattern.trim())
+  .filter(Boolean)
+  .map((pattern) => {
+    const escapedPattern = pattern
+      .replace(/[.+?^${}()|[\]\\]/g, "\\$&")
+      .replace(/\*/g, ".*");
+
+    return new RegExp(`^${escapedPattern}$`);
+  });
+
+const isAllowedOrigin = (origin) => {
+  const normalizedOrigin = normalizeOrigin(origin);
+
+  return (
+    allowedOrigins.has(normalizedOrigin) ||
+    wildcardOriginPatterns.some((pattern) => pattern.test(normalizedOrigin))
+  );
+};
+
 app.use(
   cors({
     origin(origin, callback) {
-      if (!origin || allowedOrigins.has(normalizeOrigin(origin))) {
+      if (!origin || isAllowedOrigin(origin)) {
         return callback(null, true);
       }
 
